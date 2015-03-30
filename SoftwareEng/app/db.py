@@ -8,7 +8,7 @@ def insertProduct(productObj):
 
 def getProduct(productId):
 	product = db.product
-	productObj = product.find_one("_id":productId)
+	productObj = product.find_one({"_id":productId})
 	return productObj
 
 def updateProduct(productObj):

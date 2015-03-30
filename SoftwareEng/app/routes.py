@@ -1,5 +1,7 @@
 from app import flaskapp
 from flask import render_template
+import dbwrapper
+
 @flaskapp.route('/')
 @flaskapp.route('/home')
 def index():
@@ -12,3 +14,13 @@ def signIn():
 @flaskapp.route('/registration')
 def registration():
     return render_template('RegistrationPage.html')
+
+@flaskapp.route('/newproduct')
+def newproduct():
+	dbwrapper.createProduct(request)
+
+@flaskapp.route('/getproduct')
+def getproduct():
+	return dbwrapper.getProduct(request)
+	
+

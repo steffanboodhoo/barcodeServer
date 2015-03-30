@@ -1,3 +1,5 @@
 #!flask/bin/python
 from app import flaskapp
-flaskapp.run(debug=True)
+
+if __name__ == '__main__':
+	flaskapp.run(debug=True)
