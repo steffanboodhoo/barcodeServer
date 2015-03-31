@@ -6,7 +6,7 @@ db = client.get_default_database()
 
 def insertProduct(productObj):
 	product = db.product
-	print "about to create object "+productObj
+	print "about to create object "+str(productObj)
 	product.insert(productObj)
 	#db.mynewcollection.insert({ "foo" : "bar" })
 
