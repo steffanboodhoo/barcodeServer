@@ -1,6 +1,7 @@
 from pymongo import MongoClient
-client = MongoClient('localhost', 27017)
-db = client.barcodes
+URI =  mongodb://adminuser:adminuser@ds059471.mongolab.com:59471/barcode
+client = MongoClient(URI)
+db = client.get_default_database()
 
 def insertProduct(productObj):
 	product = db.product
