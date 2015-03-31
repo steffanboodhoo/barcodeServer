@@ -1,5 +1,6 @@
 from app import flaskapp
 from flask import render_template
+from flask import request
 import dbwrapper
 
 @flaskapp.route('/')
@@ -15,12 +16,12 @@ def signIn():
 def registration():
     return render_template('RegistrationPage.html')
 
-@flaskapp.route('/newproduct')
+@flaskapp.route('/newproduct',methods=['POST'])
 def newproduct():
 	dbwrapper.createProduct(request)
 
-@flaskapp.route('/getproduct')
-def getproduct():
-	return dbwrapper.getProduct(request)
+@flaskapp.route('/getproduct/<int:product_id>')
+def getproduct(product_id):
+	return dbwrapper.getProduct(product_id)
 	
 

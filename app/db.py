@@ -5,11 +5,14 @@ db = client.get_default_database()
 
 def insertProduct(productObj):
 	product = db.product
+	print "about to create object "+productObj
 	product.insert(productObj)
+	#db.mynewcollection.insert({ "foo" : "bar" })
 
 def getProduct(productId):
 	product = db.product
-	productObj = product.find_one({"_id":productId})
+	print "about to find product "+ str(productId)
+	productObj = product.find_one({"id":str(productId)})
 	return productObj
 
 def updateProduct(productObj):

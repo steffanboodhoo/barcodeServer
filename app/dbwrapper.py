@@ -1,13 +1,15 @@
 import db
 from flask import request
 
-def getProduct(requestObj):
-	productId = request.args.get('productId')
+def getProduct(productId):
 	obj = db.getProduct(productId)
+	print obj
 	if obj is None:
-		return "no object found"
+		return ""
 	return obj
 	
 def createProduct(requestObj):
-	product = requestObj.args.get('product')
+	productObj = {"id":requestObj.form['id'],
+				"name":requestObj.form['name']}
+	print "PRODUCT OBJECT:"+str(productObj.name)
 	db.insertProduct(productObj)
