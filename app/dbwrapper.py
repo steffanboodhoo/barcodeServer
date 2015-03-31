@@ -4,8 +4,6 @@ from flask import request
 def getProduct(productId):
 	obj = db.getProduct(productId)
 	print obj
-	if obj is None:
-		return ""
 	return obj
 	
 def createProduct(productObj):
