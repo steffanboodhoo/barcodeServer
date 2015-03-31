@@ -1,6 +1,7 @@
 from app import flaskapp
 from flask import render_template
 from flask import request
+from flask import jsonify
 import json
 import dbwrapper
 
@@ -27,6 +28,7 @@ def newproduct():
 
 @flaskapp.route('/getproduct/<int:product_id>')
 def getproduct(product_id):
-	return dbwrapper.getProduct(product_id)
-	
+	obj = dbwrapper.getProduct(product_id)
+	print obj
+	return obj
 
