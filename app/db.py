@@ -12,7 +12,7 @@ def insertProduct(productObj):
 def getProduct(productId):
 	product = db.product
 	print "about to find product "+ str(productId)
-	productObj = product.find_one({"id":str(productId)})
+	productObj = product.find_one({"code":productId})
 	return productObj
 
 def updateProduct(productObj):

@@ -1,6 +1,7 @@
 from app import flaskapp
 from flask import render_template
 from flask import request
+import json
 import dbwrapper
 
 @flaskapp.route('/')
@@ -16,9 +17,13 @@ def signIn():
 def registration():
     return render_template('RegistrationPage.html')
 
-@flaskapp.route('/newproduct',methods=['POST'])
+@flaskapp.route('/newproduct',methods=['GET','POST'])
 def newproduct():
-	dbwrapper.createProduct(request)
+	json_str=u''+str(request.get_data())
+	print json_str
+	productObj = json.loads(json_str)
+	dbwrapper.createProduct(productObj)
+	return "something"
 
 @flaskapp.route('/getproduct/<int:product_id>')
 def getproduct(product_id):

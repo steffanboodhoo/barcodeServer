@@ -8,8 +8,7 @@ def getProduct(productId):
 		return ""
 	return obj
 	
-def createProduct(requestObj):
-	productObj = {"id":requestObj.form['id'],
-				"name":requestObj.form['name']}
-	print "PRODUCT OBJECT:"+str(productObj.name)
+def createProduct(productObj):
+	print "Before extracting data"
+	print "PRODUCT OBJECT:"+str(productObj)
 	db.insertProduct(productObj)
