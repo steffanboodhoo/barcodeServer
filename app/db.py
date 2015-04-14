@@ -8,13 +8,18 @@ def insertProduct(productObj):
 	product = db.product
 	print "about to create object "+str(productObj)
 	product.insert(productObj)
+	return dumps({})
 	#db.mynewcollection.insert({ "foo" : "bar" })
 
 def getProduct(productId):
 	product = db.product
 	print "about to find product "+ str(productId)
 	productObj = product.find_one({"code":productId})
-	return dumps(productObj)
+	products = []
+	for p in product.find({"type":productObj['type']}):
+		products.append(p)
+	print products
+	return dumps(products)
 
 def updateProduct(productObj):
 	product = db.product
