@@ -15,10 +15,11 @@ def getProduct(productId):
 	product = db.product
 	print "about to find product "+ str(productId)
 	productObj = product.find_one({"code":productId})
-	products = []
+	products = [productObj]
 	for p in product.find({"type":productObj['type']}):
-		products.append(p)
-	print products
+		if p['code']!=productObj['code']:
+			products.append(p)
+
 	return dumps(products)
 
 def updateProduct(productObj):
