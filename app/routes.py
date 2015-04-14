@@ -33,3 +33,11 @@ def getproduct(product_id):
 	print obj
 	return obj
 
+@flaskapp.route('/deleteproduct/<int:product_id>',methods=['DELETE'])
+def deleteproduct(product_id):
+	obj = dbwrapper.deleteProduct(product_id)
+	print obj
+	return obj
+
+
+

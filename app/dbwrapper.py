@@ -10,3 +10,8 @@ def createProduct(productObj):
 	print "Before extracting data"
 	print "PRODUCT OBJECT:"+str(productObj)
 	db.insertProduct(productObj)
+
+def deleteProduct(productId):
+	print 'before deleting'
+	obj = db.deleteProduct(productId)
+	return obj

@@ -26,5 +26,9 @@ def updateProduct(productObj):
 	product = db.product
 	product.find_one_and_update(productObj)
 
+def deleteProduct(productId):
+	obj = db.product.find_one_and_delete({"code":productId})
+	return dumps(obj)
+
 if __name__ == '__main__':
 	main()
