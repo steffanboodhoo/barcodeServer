@@ -28,7 +28,11 @@ def updateProduct(productObj):
 
 def deleteProduct(productId):
 	obj = db.product.find_one_and_delete({"code":productId})
-	return dumps(obj)
+	if (obj != None):
+		response = {'object':obj,'status':'success'}
+	else:
+		response = {'status':'failure'}
+	return dumps(response)
 
 if __name__ == '__main__':
 	main()
