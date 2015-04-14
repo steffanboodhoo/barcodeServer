@@ -15,3 +15,8 @@ def deleteProduct(productId):
 	print 'before deleting'
 	obj = db.deleteProduct(productId)
 	return obj
+
+def getAll(product_type):
+	print 'getting all'
+	products = db.getAll(product_type)
+	return products

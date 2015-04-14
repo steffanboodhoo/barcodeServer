@@ -34,5 +34,17 @@ def deleteProduct(productId):
 		response = {'status':'failure'}
 	return dumps(response)
 
+def getAll(product_type):
+	product = db.product
+	Filter = {}
+	if(product_type != "all"):
+		Filter['type']=product_type
+
+	products=[]
+	for p in product.find(Filter):
+		products.append(p)
+
+	return dumps(products)
+
 if __name__ == '__main__':
 	main()

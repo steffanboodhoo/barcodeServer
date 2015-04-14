@@ -40,4 +40,9 @@ def deleteproduct(product_id):
 	return obj
 
 
-
+@flaskapp.route('/getall/<string:product_type>')
+def getAll(product_type):
+	print 'hellooooooo'
+	obj = dbwrapper.getAll(product_type)
+	print obj
+	return obj
