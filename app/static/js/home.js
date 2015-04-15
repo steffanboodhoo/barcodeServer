@@ -47,6 +47,10 @@
 			"password"	: password,
 			"email" : email
 		};
+		if(user===""||password===""||email===""){
+			console.log('returned')
+			return;
+		}
 
 		console.log(user);
 		var usrJson = JSON.stringify(user);
@@ -60,6 +64,7 @@
 				type:'post',
 				url: "https://steff-bood-sw-eng.herokuapp.com/newmanager", 
 				success: function(response){
+							attachUser(user);
 							console.log(response)
     					}
     		});
