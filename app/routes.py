@@ -49,11 +49,13 @@ def getAll(product_type):
 	return obj
 
 
-@flaskapp.route('/validateuser')
-def validateUser():
+@flaskapp.route('/validateuser/<string:username>/<string:password>')
+def validateUser(username,password):
 	print 'about to validateuser'
+	'''
 	json_str=u''+str(request.get_data())
 	print json_str
 	managerObj = json.loads(json_str)
-	resp = dbwrapper.validateuser(managerObj)
+	'''
+	resp = dbwrapper.validateuser(username,password)
 	return resp

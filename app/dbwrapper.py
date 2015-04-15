@@ -27,9 +27,10 @@ def getAll(product_type):
 	products = db.getAll(product_type)
 	return products
 
-def validateUser(user):
-	print 'inside wrapper'
-	password = user.password
-	username = user.username
+def validateuser(username,password):
+	#print 'inside wrapper'
+	#password = user.password
+	#username = user.username
+	print username,password
 	resp = db.checkPassword(username,password)
 	return resp
