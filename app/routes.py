@@ -24,8 +24,8 @@ def newproduct():
 	json_str=u''+str(request.get_data())
 	print json_str
 	productObj = json.loads(json_str)
-	dbwrapper.createProduct(productObj)
-	return {}
+	obj = dbwrapper.createProduct(productObj)
+	return obj
 
 @flaskapp.route('/getproduct/<int:product_id>')
 def getproduct(product_id):

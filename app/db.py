@@ -4,11 +4,28 @@ URI =  "mongodb://adminuser:adminuser@ds059471.mongolab.com:59471/barcode"
 client = MongoClient(URI)
 db = client.get_default_database()
 
+def createManage(managerObj):
+	manager = db.manager
+	manager.insert(managerObj)
+	return dumps({'status':'success'})
+
+def getManager(username):
+	manager = db.manager
+	managerObj = manager.find_one({'username':username})
+	return dumps(managerObj)
+
+def checkPassword(username,password):
+	manager = db.manager
+	managerObj = manager.find_one({'username':username,'password':password})
+	if(managerObj == None):
+		return dumps({'status':'failure'})
+	return dumps({'status':'success'})
+
 def insertProduct(productObj):
 	product = db.product
 	print "about to create object "+str(productObj)
 	product.insert(productObj)
-	return dumps({})
+	return dumps({'status':'success'})
 	#db.mynewcollection.insert({ "foo" : "bar" })
 
 def getProduct(productId):

@@ -1,5 +1,6 @@
 import db
 from flask import request
+from bson.json_util import dumps
 
 def getProduct(productId):
 	obj = db.getProduct(productId)
@@ -9,7 +10,11 @@ def getProduct(productId):
 def createProduct(productObj):
 	print "Before extracting data"
 	print "PRODUCT OBJECT:"+str(productObj)
-	db.insertProduct(productObj)
+	try:
+  		db.insertProduct(productObj)
+	except Exception: 
+		return dumps({'status':'failure'})
+	
 
 def deleteProduct(productId):
 	print 'before deleting'
