@@ -17,10 +17,18 @@ def getManager(username):
 def checkPassword(username,password):
 	print 'home free'
 	manager = db.manager
-	managerObj = manager.find_one({'username':username,'password':password})
-	if(managerObj == None):
-		return dumps({'status':'failure'})
-	return dumps({'status':'success'})
+	print 'username',username,' idk'
+	print 'password',password,' whats wrong'
+	#managerObj = manager.find_one({'username':u''+str(username),'password':u''+str(password)})
+	for m in manager.find():
+		if(m['username']==username and m['password']==password):
+			return dumps({'status':'success'})
+		print m['username']
+		print m['password']
+
+	#if(managerObj == None):
+	#	return dumps({'status':'failure'})
+	return dumps({'status':'failure'})
 
 def insertProduct(productObj):
 	product = db.product
@@ -66,5 +74,10 @@ def getAll(product_type):
 
 	return dumps(products)
 
+def createTestManager():
+	obj = {'username':'admin','password':'pass','email':'emailA.com'}
+	manager = db.manager
+	manager.insert(obj)
+
 if __name__ == '__main__':
-	main()
+	createTestManager()
