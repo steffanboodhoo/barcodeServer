@@ -26,3 +26,8 @@ def getAll(product_type):
 	print 'getting all'
 	products = db.getAll(product_type)
 	return products
+
+def validateUser(user):
+	password = user.password
+	username = user.username
+	return db.checkPassword(username,password)

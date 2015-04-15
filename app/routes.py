@@ -19,6 +19,7 @@ def signIn():
 def registration():
     return render_template('RegistrationPage.html')
 
+
 @flaskapp.route('/newproduct',methods=['GET','POST'])
 def newproduct():
 	json_str=u''+str(request.get_data())
@@ -46,3 +47,11 @@ def getAll(product_type):
 	obj = dbwrapper.getAll(product_type)
 	print obj
 	return obj
+
+
+@flaskapp.route('/validateuser')
+def validateUser():
+	json_str=u''+str(request.get_data())
+	print json_str
+	managerObj = json.loads(json_str)
+	return dbwrapper.validateuser(managerObj)
