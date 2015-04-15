@@ -1,7 +1,9 @@
 h1.page-header {
     margin-top: -5px;
 }
-
+#moz{
+  background-color: #eee;
+}
 .list-group-horizontal .list-group-item {
     display: inline-block;
 }

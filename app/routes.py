@@ -60,7 +60,7 @@ def validateUser(username,password):
 	resp = dbwrapper.validateuser(username,password)
 	return resp
 
-@flaskapp.route('/getmanagers',methods=['GET'])
+@flaskapp.route('/getmanagers',methods=['GET','OPTIONS'])
 def getManagers():
 	resp = dbwrapper.getManagers()
 	return resp
