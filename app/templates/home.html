@@ -8,28 +8,63 @@
    <script src="static/scripts/jquery.min.js"></script>
    <script src="static/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="signIn">Sign-in</a></li>
+          <li><a href="registration">Sign-up</a></li>
+  		    <li><a href="http://www.google.com" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-search"></span> Search</a></li> 
+        </ul>
+      </div>
     </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="signIn">Sign-in</a></li>
-        <li><a href="registration">Sign-up</a></li>
-		<li><a href="http://www.google.com" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-search"></span> Search</a></li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-  
-<div class="container">
-  <button type="button" class="btn btn-primary"><a href="adduser.html">Primary</button>
-</div>
+  </nav>
 
+  <div class="container-fluid main-container">
+    <div class="col-md-2 sidebar">
+      <div class="row">
+        <!-- uncomment code for absolute positioning tweek see top comment in css -->
+        <!-- <div class="absolute-wrapper"> </div> -->
+        <!-- Menu -->
+        <div class="side-menu">
+          <nav class="navbar navbar-default" role="navigation">
+            <!-- Main Menu -->
+            <div class="side-menu-container">
+              <ul class="nav navbar-nav">
+                <!-- <li class="active"><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li> -->
+                <!-- <li><a href="#"><span class="glyphicon glyphicon-plane"></span> Active Link</a></li> -->
+                <li><a href="#"><span class="glyphicon glyphicon-cloud"></span> View Users</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Add User</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>      
+    </div>
+
+    <div class="col-md-10 content">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Users
+        </div>
+        <div class="panel-body">
+          <div class="list-group list-group-horizontal">
+            <!-- <div class="list-group-item" id="user_count"></div> -->
+            <div class="list-group-item" id="user_id"></div>
+            <div class="list-group-item" id="user_name"></div>
+            <div class="list-group-item" id="user_password"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- container div -->
 </body>
+
 </html>
