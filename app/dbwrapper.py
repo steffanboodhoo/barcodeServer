@@ -38,3 +38,7 @@ def validateuser(username,password):
 	print username,password
 	resp = db.checkPassword(username,password)
 	return resp
+
+def createManager(manager):
+	obj = db.createManager(manager)
+	return obj

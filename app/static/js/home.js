@@ -4,8 +4,16 @@
 	$(document).ready(function(){
 		//var usrObj={'username':'Steffanb','password':'pass','email':'email@domain.com'}
 		//attachUser(usrObj)
-		getUsers()
+		getUsers();
+		setup();
 	});
+	function setup(){
+		console.log('setting up')
+		$('#addUsrBtn').click(function(){
+			console.log('click')
+			getInput()
+		})
+	}
 	function getUsers(){
 		$.ajax({
 				url: "http://localhost:5000/getmanagers", 
@@ -28,6 +36,7 @@
 		$("<div/>",{class:'list-group-item'}).append("<b>Email</b>: "+usrObj.email).appendTo(usrDiv)
 		$('#userlist_Cont').append(usrDiv).hide().fadeIn(1000)
 	}
+
 	function getInput(){
 		var username = $('#username').val();
 		var password = $('#password').val();
@@ -40,12 +49,20 @@
 		};
 
 		console.log(user);
-
+		var usrJson = JSON.stringify(user);
 		// clearing the input fields
 		$('#username').val('');
 		$('#password').val('');
 		$('#email_address').val('');
 
+		$.ajax({
+				data:usrJson,
+				type:'post',
+				url: "http://localhost:5000/newmanager", 
+				success: function(response){
+							console.log(response)
+    					}
+    		});
 	}
 
 	

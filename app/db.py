@@ -4,7 +4,7 @@ URI =  "mongodb://adminuser:adminuser@ds059471.mongolab.com:59471/barcode"
 client = MongoClient(URI)
 db = client.get_default_database()
 
-def createManage(managerObj):
+def createManager(managerObj):
 	manager = db.manager
 	manager.insert(managerObj)
 	return dumps({'status':'success'})

@@ -64,3 +64,11 @@ def validateUser(username,password):
 def getManagers():
 	resp = dbwrapper.getManagers()
 	return resp
+
+@flaskapp.route('/newmanager',methods=['GET','POST','OPTIONS'])
+def newmanager():
+	json_str=u''+str(request.get_data())
+	print json_str
+	ManagerObj = json.loads(json_str)
+	obj = dbwrapper.createManager(ManagerObj)
+	return obj
