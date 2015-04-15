@@ -15,6 +15,7 @@ def getManager(username):
 	return dumps(managerObj)
 
 def checkPassword(username,password):
+	print 'home free'
 	manager = db.manager
 	managerObj = manager.find_one({'username':username,'password':password})
 	if(managerObj == None):
