@@ -11,7 +11,8 @@ def createProduct(productObj):
 	print "Before extracting data"
 	print "PRODUCT OBJECT:"+str(productObj)
 	try:
-  		db.insertProduct(productObj)
+  		obj = db.insertProduct(productObj)
+  		return obj
 	except Exception: 
 		return dumps({'status':'failure'})
 	
