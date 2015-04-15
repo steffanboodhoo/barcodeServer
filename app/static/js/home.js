@@ -28,6 +28,25 @@
 		$("<div/>",{class:'list-group-item'}).append("<b>Email</b>: "+usrObj.email).appendTo(usrDiv)
 		$('#userlist_Cont').append(usrDiv).hide().fadeIn(1000)
 	}
+	function getInput(){
+		var username = $('#username').val();
+		var password = $('#password').val();
+		var email = $('#email_address').val();
+
+		var user = {
+			"username" : username,
+			"password"	: password,
+			"email" : email
+		};
+
+		console.log(user);
+
+		// clearing the input fields
+		$('#username').val('');
+		$('#password').val('');
+		$('#email_address').val('');
+
+	}
 
 	
 
