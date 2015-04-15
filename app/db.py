@@ -15,6 +15,8 @@ def getProduct(productId):
 	product = db.product
 	print "about to find product "+ str(productId)
 	productObj = product.find_one({"code":productId})
+	if productObj == None:
+		return dumps([])
 	products = [productObj]
 	for p in product.find({"type":productObj['type']}):
 		if p['code']!=productObj['code']:

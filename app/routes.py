@@ -11,9 +11,9 @@ import dbwrapper
 def index():
     return render_template('home.html')
 
-@flaskapp.route('/signIn')
+@flaskapp.route('/adduser')
 def signIn():
-    return render_template('Signin.html')
+    return render_template('adduser.html')
 
 @flaskapp.route('/registration')
 def registration():
