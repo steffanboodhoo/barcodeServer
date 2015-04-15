@@ -14,6 +14,13 @@ def getManager(username):
 	managerObj = manager.find_one({'username':username})
 	return dumps(managerObj)
 
+def getManagers():
+	manager = db.manager
+	managers = []
+	for m in manager.find():
+		managers.append(m)
+	return dumps(managers)
+	
 def checkPassword(username,password):
 	print 'home free'
 	manager = db.manager

@@ -27,6 +27,10 @@ def getAll(product_type):
 	products = db.getAll(product_type)
 	return products
 
+def getManagers():
+	resp = db.getManagers()
+	return resp
+
 def validateuser(username,password):
 	#print 'inside wrapper'
 	#password = user.password
