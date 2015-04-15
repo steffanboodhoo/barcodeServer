@@ -16,7 +16,7 @@
 	}
 	function getUsers(){
 		$.ajax({
-				url: "http://localhost:5000/getmanagers", 
+				url: "https://steff-bood-sw-eng.herokuapp.com/getmanagers", 
 				success: function(response){
 							var users = JSON.parse(response)
 							console.log( users)
@@ -58,7 +58,7 @@
 		$.ajax({
 				data:usrJson,
 				type:'post',
-				url: "http://localhost:5000/newmanager", 
+				url: "https://steff-bood-sw-eng.herokuapp.com/newmanager", 
 				success: function(response){
 							console.log(response)
     					}
